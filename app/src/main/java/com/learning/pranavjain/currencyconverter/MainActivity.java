@@ -43,17 +43,19 @@ public class MainActivity extends AppCompatActivity {
         EditText editText1 = (EditText) findViewById(R.id.getInput);
         EditText editText2 = (EditText) findViewById(R.id.printAnswer);
 
-        Toast.makeText(this,"Yo, Sup?",Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this,"Yo, Sup?",Toast.LENGTH_SHORT).show();
         Log.i("All OK",editText1.getText().toString());
 
         //Get Input
-        int numberInRupees = Integer.parseInt(editText1.getText().toString());
-        //Calculate
-        int numberInDollars = numberInRupees * 60;
-        //Print Output
-        editText2.setText(String.valueOf(numberInDollars));
-
-
+        if(editText1.getText().toString().isEmpty()){
+            Toast.makeText(getApplicationContext(),"Please enter a number",Toast.LENGTH_SHORT).show();
+        }else {
+            int numberInRupees = Integer.parseInt(editText1.getText().toString());
+            //Calculate
+            int numberInDollars = numberInRupees * 60;
+            //Print Output
+            editText2.setText(String.valueOf(numberInDollars));
+        }
 
     }
 
